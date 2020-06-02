@@ -72,12 +72,12 @@ public class Main {
     }
     //Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета);
     public static void maxArray (){
-
-        int [] array = {5,6,7,8,9,10};
         int indexOfMax = 0;
         int indexOfMin = 0;
-        for (int i = 1; i < array.length; i++)
-        {
+        int [] array = new int[20];
+
+        for (int i = 0; i < array.length; i++) {
+
             if (array[i] > array[indexOfMax])
             {
                 indexOfMax = i;
