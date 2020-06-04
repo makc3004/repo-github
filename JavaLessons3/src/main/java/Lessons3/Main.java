@@ -3,27 +3,40 @@ package Lessons3;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class Main { //крестики нолики
     // Заведение констант на допустимый ввод
     // Какими символами (фигками) играет игрок
-    private static final char DOT_HUMAN = 'X';
+    private static final char DOT_HUMAN = 'X'; //челоывек ходит с "X"
     // Что вводит компьютер
-    private static final char DOT_AI = 'O';
+    private static final char DOT_AI = 'O';  //компьютер ходит с "Y"
     // Символ пустой клетка
     private static final char DOT_EMPTY = ' ';
 
+    // final - константа (не изменяемая) для этого класса
+
     // Упрощения вместо использования field.length
-    private static int fieldSizeX;
-    private static int fieldSizeY;
+    private static int fieldSizeX; //размер по "Х"
+    private static int fieldSizeY; //размер по "Y"
     // Игровое поля
     private static char[][] field;
 
-    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final int fieldSize = 3;
+
+    private static final Scanner SCANNER = new Scanner(System.in); //сканер принимает входную очередь в консоле
     private static final Random RANDOM = new Random();
+
+    //initField
+    //printField
+    //humanTurn
+    //aiTurn
+    //isNotEmptyField
+    //checkWin
+    //isValidField
+    //isDraw
 
     //main
     public static void main(String[] args) {
-        int fieldSize = 3;
+        //int fieldSize = 3;
         while (true) {
             init(fieldSize);
             printField();
@@ -117,6 +130,40 @@ public class Main {
 
     //aiTurn
     private static void aiTurn() {
+
+        //Пытался сделать блокировку хода пользователя, если он побеждает на следующем ходу. Не понимаю где ошибся
+//        int x = -1;
+//        int y = -1;
+//        boolean ai_win = false;
+//        boolean user_win = false;
+//
+//        if (!ai_win) {
+//            for (int i = 0; i < fieldSize; i++) {
+//                for (int j = 0; j < fieldSize; j++) {
+//                    if (!isNotEmptyField(i, j)) {
+//                        field[i][j] = DOT_HUMAN;
+//                        if (isWinnerExists(DOT_HUMAN)) {
+//                            x = i;
+//                            y = j;
+//                            user_win = true;
+//                        }
+//                        field[i][j] = DOT_EMPTY;
+//                    }
+//                }
+//            }
+//        }
+//        if (!ai_win && !user_win) {
+//            do {
+//            x = RANDOM.nextInt(fieldSizeX);
+//            y = RANDOM.nextInt(fieldSizeY);
+//        } while (isNotEmptyField(x, y));
+//        field[y][x] = DOT_AI;
+////
+//        }
+//
+//    }
+
+
         int x;
         int y;
         do {
@@ -125,6 +172,7 @@ public class Main {
         } while (isNotEmptyField(x, y));
         field[y][x] = DOT_AI;
     }
+
 
     //isDraw
     private static boolean isDraw() {
@@ -140,18 +188,26 @@ public class Main {
 
     //checkWin
     private static boolean isWinnerExists(char symb) {
-        if (field[0][0] == symb && field[0][1] == symb && field[0][2] == symb) return true;
-        if (field[1][0] == symb && field[1][1] == symb && field[1][2] == symb) return true;
-        if (field[2][0] == symb && field[2][1] == symb && field[2][2] == symb) return true;
 
-        if (field[0][0] == symb && field[1][0] == symb && field[2][0] == symb) return true;
-        if (field[0][1] == symb && field[1][1] == symb && field[2][1] == symb) return true;
-        if (field[0][2] == symb && field[1][2] == symb && field[2][2] == symb) return true;
+        for (int i = 0; i < 3; i++)
+            if ((field[i][0] == symb && field[i][1] == symb && field[i][2] == symb) || (field[0][i] == symb && field[1][i] == symb && field[2][i] == symb))
+                return true;
+        if ((field[0][0] == symb && field[1][1] == symb && field[2][2] == symb) || (field[2][0] == symb && field[1][1] == symb && field[0][2] == symb))
+            return true;
 
-        if (field[0][0] == symb && field[1][1] == symb && field[2][2] == symb) return true;
-        if (field[2][0] == symb && field[1][1] == symb && field[0][2] == symb) return true;
+//        if (field[0][0] == symb && field[0][1] == symb && field[0][2] == symb) return true;
+//        if (field[1][0] == symb && field[1][1] == symb && field[1][2] == symb) return true;
+//        if (field[2][0] == symb && field[2][1] == symb && field[2][2] == symb) return true;
+//
+//        if (field[0][0] == symb && field[1][0] == symb && field[2][0] == symb) return true;
+//        if (field[0][1] == symb && field[1][1] == symb && field[2][1] == symb) return true;
+//        if (field[0][2] == symb && field[1][2] == symb && field[2][2] == symb) return true;
+//
+//        if (field[0][0] == symb && field[1][1] == symb && field[2][2] == symb) return true;
+//        if (field[2][0] == symb && field[1][1] == symb && field[0][2] == symb) return true;
         return false;
     }
 
 
 }
+

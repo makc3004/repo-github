@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="JavaLessons.homework" />
+        <module name="JavaLessons5" />
         <module name="JavaLessons3" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JavaLessons.homework" target="1.8" />
       <module name="JavaLessons3" target="1.8" />
+      <module name="JavaLessons5" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
