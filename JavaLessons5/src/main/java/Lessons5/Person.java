@@ -21,8 +21,9 @@ public class Person {
 
     }
     void printInfo(){
-        System.out.println("ФИО: "+nameSurname+"; Должность: "+ position+"; E-mail: "+email+"; Номер телефона: "+phone+"; Зарплата: "+salary+"; Возраст: "+age+";");
-
+        if (age>=40) {
+            System.out.println("ФИО: " + nameSurname + "; Должность: " + position + "; E-mail: " + email + "; Номер телефона: " + phone + "; Зарплата: " + salary + "; Возраст: " + age + ";");
+        }
     }
 
 }
