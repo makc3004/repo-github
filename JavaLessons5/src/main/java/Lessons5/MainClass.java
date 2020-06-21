@@ -1,8 +1,6 @@
 package Lessons5;
 
 
-import java.util.Arrays;
-
 public class MainClass {
     public static void main(String[] args) {
         //Задания от 1 до 3
@@ -26,7 +24,7 @@ public class MainClass {
         persArray[2] = new Person("Галкин Павел", "Seller", "gpavel@mailbox.com", "987654321", 25000, 27);
         persArray[3] = new Person("Петров Александр", "Director", "bos@mailbox.com", "777777777", 150000, 47);
         persArray[4] = new Person("Овечкина Анастасия", "Accountant", "money@mailbox.com", "123987645", 50000, 50);
-        //for (int i = 0; i < persArray.length; i++) {
+
         persArray[0].printInfo();
         persArray[1].printInfo();
         persArray[2].printInfo();
