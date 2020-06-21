@@ -46,8 +46,8 @@ public class XoWindow extends JFrame {
         setVisible(true);
     }
 
-// добавление фона, но он не заработал
-    public static void age() throws IOException {
+// добавление фона, но он не заработал(
+    public static void img() throws IOException {
         background = ImageIO.read(XoWindow.class.getResourceAsStream("background.png"));
             }
 
